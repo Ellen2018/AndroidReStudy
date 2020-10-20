@@ -12,6 +12,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        flavorDimensions "default"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -26,11 +27,31 @@ android {
         }
     }
 
+    //打包配置
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+        }
+    }
+
+    //渠道配置
+    productFlavors{
+        xiaomi{
+           manifestPlaceholders = [APP_CHANNEL_VALUE:"xiaomi"]
+        }
+        baidu{
+            manifestPlaceholders = [APP_CHANNEL_VALUE:"baidu"]
+        }
+        google{
+            manifestPlaceholders = [APP_CHANNEL_VALUE:"google"]
+        }
+        pp{
+            manifestPlaceholders = [APP_CHANNEL_VALUE:"pp"]
+        }
+        baidu{
+            manifestPlaceholders = [APP_CHANNEL_VALUE:"baidu"]
         }
     }
 }
